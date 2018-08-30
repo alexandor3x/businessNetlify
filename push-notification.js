@@ -2,9 +2,9 @@ import firebase from 'firebase';
 
 export const initializeFirebase = () => {
  
-  console.log("test")
+
  
-  
+
   firebase.initializeApp({messagingSenderId: "824440442769"});
 
   // use other service worker
