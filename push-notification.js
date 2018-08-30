@@ -7,12 +7,7 @@ export const initializeFirebase = () => {
 
   firebase.initializeApp({messagingSenderId: "824440442769"});
 
-  // use other service worker
-  // navigator.serviceWorker
-  //   .register('/my-sw.js')
-  //   .then((registration) => {
-  //     firebase.messaging().useServiceWorker(registration);
-  //   });
+
 }
 
 export const askForPermissioToReceiveNotifications = async () => {
@@ -35,8 +30,7 @@ export const askForPermissioToReceiveNotifications = async () => {
       .catch(error => console.error('Error:', error))
       
       const content = await rawResponse;
-    
-      console.log(content);
+   
     })();
 
     
