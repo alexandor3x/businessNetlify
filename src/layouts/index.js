@@ -8,7 +8,7 @@ import NavBar from '../components/NavBar'
 import Footer from '../components/Footer'
 import './styles.sass'
 import config from '../../meta/config'
-
+import { askForPermissioToReceiveNotifications } from '../../push-notification';
 const TemplateWrapper = ({children}) => (
   <div>
     <Helmet>
@@ -17,8 +17,12 @@ const TemplateWrapper = ({children}) => (
     </Helmet>
     <NavBar />
     <div>{children()}</div>
+    <button onClick={askForPermissioToReceiveNotifications} >
+      Click here to receive notifications
+    </button>
     <Footer />
   </div>
+
 )
 
 TemplateWrapper.propTypes = {
