@@ -10,7 +10,7 @@ export const initializeFirebase = () => {
 
 }
 
-export const askForPermissioToReceiveNotifications = async () => {
+export const askForPermissioToReceiveNotifications = () => {
   
 
     const messaging = firebase.messaging();
@@ -20,8 +20,7 @@ export const askForPermissioToReceiveNotifications = async () => {
     console.log('user token: ', token);
 
     
-    (async () => {
-      const rawResponse = await fetch("https://iid.googleapis.com/iid/v1/"+ token + "/rel/topics/all",{
+     fetch("https://iid.googleapis.com/iid/v1/"+ token + "/rel/topics/all",{
         method: 'POST',
         headers:{'Authorization':'key=AAAAv_R6z5E:APA91bHLXWzm5oMfs44Q6iZRxOQhI9-kQKaxpeY497zYE_XamXGlPymImjGhXpst_zjv89h4zrRWh7DmoPpw8rCnHXhmHAIcSWl75A6d5sPq0TNgLDGaemewxe7BIhW4fqLt5nLFekDX',
         'Content-Type':'application/json'
@@ -29,9 +28,7 @@ export const askForPermissioToReceiveNotifications = async () => {
       }).then(res => console.log(res))
       .catch(error => console.error('Error:', error))
       
-      const content = await rawResponse;
-   
-    })();
+      
 
     
     return token;
